@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --spring-leaf: #3ea560;
+    --spring-mint: #22c55e;
+    --spring-mint-dark: #16a34a;
+    --spring-leaf-dark: #15803d;
+    --spring-forest: #1C2B22;
+    --spring-forest-surface: #22352a;
+    --spring-yellow: #FFD84D;
+    --spring-lavender: #C5B4FF;
+    --bg-light-0: #F7FFF4;
+    --bg-light-1: #ECFFE8;
+    --bg-light-2: #E4FFE1;
+    --bg-light-soft: #F5F9F1;
+    --bg-card-light: rgba(255, 255, 255, 0.92);
+    --bg-dark-0: #0F1A14;
+    --bg-dark-1: #1C2B22;
+    --bg-dark-2: #2A3E35;
+    --bg-card-dark: rgba(28, 43, 34, 0.88);
+    --shadow-petal: 0 8px 20px rgba(60, 120, 80, 0.15);
+    --shadow-leaf: 0 12px 32px rgba(76, 175, 106, 0.2);
+    --shadow-glow: 0 6px 16px rgba(126, 217, 87, 0.4);
+    --shadow-bloom: 0 16px 48px rgba(76, 175, 106, 0.25);
+    --gradient-bg-light: linear-gradient(135deg, #F7FFF4, #ECFFE8 40%, #E4FFE1 70%, #F5F9FF);
+    --gradient-bg-dark: linear-gradient(135deg, #0F1A14, #1C2B22 40%, #2A3E35 70%, #1A2A1F);
+    --spring-gradient-bg: linear-gradient(160deg, #eef7f0, #e4f6e8 30%, #e9f9ff 60%, #f5f8ff);
+    --glass-shadow: 0 8px 24px -4px rgba(76, 175, 106, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+  }
+
+  .dark {
+    --bg-light-0: #0F1A14;
+    --bg-light-1: #1C2B22;
+    --bg-light-2: #2A3E35;
+    --bg-light-soft: #1A2A1F;
+    --bg-card-light: rgba(24, 38, 30, 0.9);
+    --spring-gradient-bg: linear-gradient(160deg, #0d1712, #14231a 40%, #192b21 70%, #0f1913);
+    --glass-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5), 0 2px 6px -1px rgba(0, 0, 0, 0.3);
+  }
+
+  body {
+    background: var(--gradient-bg-light);
+    color: #1f2937;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+  }
+
+  .dark body {
+    background: var(--gradient-bg-dark);
+    color: #f3f4f6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+}
+
+.glass-card {
+  background: var(--bg-card-light);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(76, 175, 106, 0.16);
+  border-radius: 1rem;
+}
+
+.dark .glass-card {
+  background: var(--bg-card-dark);
+  border: 1px solid rgba(94, 234, 212, 0.14);
+}
+
+.glass-navbar {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.dark .glass-navbar {
+  background: rgba(15, 26, 20, 0.85);
+}
+
+.divshadow {
+  box-shadow: var(--glass-shadow);
+}
+
+.shadow-spring-sm {
+  box-shadow: 0 2px 8px rgba(62, 165, 96, 0.12);
+}
+
+.shadow-spring-md {
+  box-shadow: 0 8px 24px rgba(62, 165, 96, 0.18);
+}
+
+.shadow-glass-lg {
+  box-shadow: 0 14px 34px rgba(62, 165, 96, 0.22);
+}
+
+.shadow-btn-3d {
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.35);
+}
+
+@keyframes leaf-sway {
+  0%, 100% {
+    transform: rotate(0deg) translateY(0);
+  }
+  50% {
+    transform: rotate(8deg) translateY(-2px);
+  }
+}
+
+.animate-leaf-sway {
+  animation: leaf-sway 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+@keyframes petal-fall {
+  0% {
+    transform: translateY(-80px) translateX(0) rotate(0deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(45vh) translateX(-25px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(95vh) translateX(35px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.petal-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 1;
+  width: 10px;
+  height: 10px;
+  background: #ffb7d5;
+  border-radius: 50% 0;
+  transform: rotate(-45deg);
+  opacity: 0.5;
+  animation: petal-fall linear infinite;
+}
