@@ -4,7 +4,7 @@ export const APP_NAME = 'GB STUDY';
 export const TELEGRAM_LINK = 'https://t.me/GBFreestudy';
 export const APP_LOGO = '/gb-study-logo.png';
 export const FALLBACK_LOGO = 'https://i.ibb.co/Q3g9fGSt/1791541921524.png';
-export const DEFAULT_BATCH_BANNER = 'https://i.ibb.co/YT0v1Fcc/file-000000008d1c8211a64b48d531d3d091.png';
+export const DEFAULT_BATCH_BANNER = '/default-batch-banner.png';
 
 const BASE_URL = ''; // Relative path utilizes Vite proxy / server proxy
 
