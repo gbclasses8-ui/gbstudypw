@@ -75,12 +75,12 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-30 glass-navbar bg-gradient-to-r from-emerald-500/5 to-teal-500/5 dark:from-emerald-500/8 dark:to-teal-500/8 border-b border-emerald-500/10 dark:border-teal-500/15 shadow-spring-sm px-3 sm:px-6 py-2.5 flex items-center justify-between">
+    <header className="sticky top-0 z-30 glass-navbar bg-gradient-to-r from-pink-500/5 to-rose-500/5 dark:from-pink-500/8 dark:to-rose-500/8 border-b border-pink-500/10 dark:border-rose-500/15 shadow-spring-sm px-3 sm:px-6 py-2.5 flex items-center justify-between">
       {/* Left side: Mobile Toggle & Back Button */}
       <div className="flex items-center gap-2">
         <button
           onClick={onToggleMobileMenu}
-          className="xl:hidden p-2 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-emerald-500/10 dark:hover:bg-emerald-400/10 transition-colors"
+          className="xl:hidden p-2 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-pink-500/10 dark:hover:bg-pink-400/10 transition-colors"
           aria-label="Toggle mobile menu"
         >
           <Menu className="w-5 h-5" />
@@ -89,7 +89,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {canGoBack && (
           <button
             onClick={onBack}
-            className="flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-xl hover:bg-emerald-500/10 dark:hover:bg-emerald-400/10 text-emerald-800 dark:text-emerald-300 transition-all duration-200 cursor-pointer"
+            className="flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-xl hover:bg-pink-500/10 dark:hover:bg-pink-400/10 text-pink-700 dark:text-pink-300 transition-all duration-200 cursor-pointer"
           >
             <ChevronLeft className="w-4 h-4" />
             <span>Back</span>
@@ -101,10 +101,10 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="flex items-center gap-2 sm:gap-3">
         {/* Verification status pill */}
         <div
-          className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold shadow-xs transition-all duration-300 border bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300"
+          className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold shadow-xs transition-all duration-300 border bg-pink-500/10 border-pink-500/30 text-pink-700 dark:text-pink-300"
           title="GB STUDY verified access active"
         >
-          <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
+          <ShieldCheck className="w-3.5 h-3.5 text-pink-500" />
           <span className="hidden sm:inline text-[11px] opacity-80">Access:</span>
           <span className="font-mono tracking-tight font-bold">FREE ALL</span>
         </div>
@@ -113,7 +113,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="relative" ref={themeRef}>
           <button
             onClick={() => setThemeDropdownOpen(!themeDropdownOpen)}
-            className="p-2 rounded-xl hover:bg-emerald-500/10 dark:hover:bg-emerald-400/10 text-gray-700 dark:text-gray-300 transition-colors"
+            className="p-2 rounded-xl hover:bg-pink-500/10 dark:hover:bg-pink-400/10 text-gray-700 dark:text-gray-300 transition-colors"
             title="Switch theme"
           >
             {theme === 'LIGHT' ? (
@@ -121,18 +121,18 @@ export const Navbar: React.FC<NavbarProps> = ({
             ) : theme === 'DARK' ? (
               <Moon className="h-5 w-5 text-blue-400" />
             ) : (
-              <Laptop className="h-5 w-5 text-emerald-500" />
+              <Laptop className="h-5 w-5 text-pink-500" />
             )}
           </button>
 
           {themeDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-44 rounded-xl glass-card border border-emerald-500/20 dark:border-teal-500/25 shadow-spring-md py-1.5 z-50 text-sm">
+            <div className="absolute right-0 mt-2 w-44 rounded-xl glass-card border border-pink-500/20 dark:border-rose-500/25 shadow-spring-md py-1.5 z-50 text-sm">
               <button
                 onClick={() => {
                   setTheme('LIGHT');
                   setThemeDropdownOpen(false);
                 }}
-                className={`w-full flex items-center gap-2.5 px-3 py-2 text-left hover:bg-emerald-500/10 dark:hover:bg-emerald-400/10 ${
+                className={`w-full flex items-center gap-2.5 px-3 py-2 text-left hover:bg-pink-500/10 dark:hover:bg-pink-400/10 ${
                   theme === 'LIGHT' ? 'text-amber-500 font-semibold' : 'text-gray-700 dark:text-gray-300'
                 }`}
               >
@@ -144,7 +144,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   setTheme('DARK');
                   setThemeDropdownOpen(false);
                 }}
-                className={`w-full flex items-center gap-2.5 px-3 py-2 text-left hover:bg-emerald-500/10 dark:hover:bg-emerald-400/10 ${
+                className={`w-full flex items-center gap-2.5 px-3 py-2 text-left hover:bg-pink-500/10 dark:hover:bg-pink-400/10 ${
                   theme === 'DARK' ? 'text-blue-400 font-semibold' : 'text-gray-700 dark:text-gray-300'
                 }`}
               >
@@ -156,11 +156,11 @@ export const Navbar: React.FC<NavbarProps> = ({
                   setTheme('SYSTEM');
                   setThemeDropdownOpen(false);
                 }}
-                className={`w-full flex items-center gap-2.5 px-3 py-2 text-left hover:bg-emerald-500/10 dark:hover:bg-emerald-400/10 ${
-                  theme === 'SYSTEM' ? 'text-emerald-500 font-semibold' : 'text-gray-700 dark:text-gray-300'
+                className={`w-full flex items-center gap-2.5 px-3 py-2 text-left hover:bg-pink-500/10 dark:hover:bg-pink-400/10 ${
+                  theme === 'SYSTEM' ? 'text-pink-500 font-semibold' : 'text-gray-700 dark:text-gray-300'
                 }`}
               >
-                <Laptop className="w-4 h-4 text-emerald-500" />
+                <Laptop className="w-4 h-4 text-pink-500" />
                 System
               </button>
             </div>
@@ -176,15 +176,15 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="relative" ref={userRef}>
           <button
             onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-            className="relative h-9 w-9 sm:h-10 sm:w-10 rounded-full p-0 ring-2 ring-emerald-500/20 hover:ring-emerald-500/40 transition-all duration-300 overflow-hidden"
+            className="relative h-9 w-9 sm:h-10 sm:w-10 rounded-full p-0 ring-2 ring-pink-500/20 hover:ring-pink-500/40 transition-all duration-300 overflow-hidden"
           >
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 text-white font-bold text-sm">
+            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-pink-500 via-rose-500 to-fuchsia-500 text-white font-bold text-sm">
               GB
             </div>
           </button>
 
           {userDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-48 rounded-xl glass-card border border-emerald-500/20 dark:border-teal-500/25 shadow-spring-md py-1.5 z-50 text-sm">
+            <div className="absolute right-0 mt-2 w-48 rounded-xl glass-card border border-pink-500/20 dark:border-rose-500/25 shadow-spring-md py-1.5 z-50 text-sm">
               <div className="px-3 py-2 border-b border-gray-200/50 dark:border-gray-700/50">
                 <p className="font-semibold text-gray-800 dark:text-gray-200 truncate">{userName}</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">GB STUDY Scholar</p>
@@ -198,9 +198,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                   }
                   setUserDropdownOpen(false);
                 }}
-                className="w-full flex items-center gap-2 px-3 py-2 text-left text-gray-700 dark:text-gray-300 hover:bg-emerald-500/10 dark:hover:bg-emerald-400/10"
+                className="w-full flex items-center gap-2 px-3 py-2 text-left text-gray-700 dark:text-gray-300 hover:bg-pink-500/10 dark:hover:bg-pink-400/10"
               >
-                <RefreshCw className="w-4 h-4 text-emerald-500" />
+                <RefreshCw className="w-4 h-4 text-pink-500" />
                 Change Name
               </button>
               <button

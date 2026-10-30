@@ -81,21 +81,21 @@ export const BatchCard: React.FC<BatchCardProps> = ({
   return (
     <div
       onClick={() => onOpen?.(id)}
-      className="glass-card !p-0 !rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-glass-lg hover:-translate-y-[3px] flex flex-col justify-between cursor-pointer border border-[#3ea560]/15 dark:border-[#5eead4]/15"
+      className="glass-card !p-0 !rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-glass-lg hover:-translate-y-[3px] flex flex-col justify-between cursor-pointer border border-[#ec4899]/15 dark:border-[#f43f5e]/15"
     >
       {/* Card Header Title */}
       <div className="p-4 pb-2 flex items-start justify-between gap-2">
         <h2 className="line-clamp-2 text-base sm:text-lg font-bold text-gray-900 dark:text-gray-100 leading-snug">
           {title}
         </h2>
-        <span className="shrink-0 bg-gradient-to-r from-amber-400 to-orange-400 text-[11px] px-2 py-0.5 rounded-lg font-bold text-white shadow-xs">
+        <span className="shrink-0 bg-gradient-to-r from-pink-500 to-rose-500 text-[11px] px-2 py-0.5 rounded-lg font-bold text-white shadow-xs">
           New
         </span>
       </div>
 
       {/* Card Image Banner */}
       <div className="px-4 pb-2">
-        <div className="w-full rounded-xl overflow-hidden relative aspect-video bg-black/5 dark:bg-black/30 border border-emerald-500/10">
+        <div className="w-full rounded-xl overflow-hidden relative aspect-video bg-black/5 dark:bg-black/30 border border-pink-500/10">
           <img
             src={displayImage}
             alt={title}
@@ -104,7 +104,7 @@ export const BatchCard: React.FC<BatchCardProps> = ({
             loading="lazy"
           />
           <div className="absolute bottom-2 left-2 z-10">
-            <span className="rounded-lg bg-gradient-to-r from-emerald-600/80 to-teal-500/70 dark:from-teal-400/70 dark:to-emerald-500/60 backdrop-blur-sm px-2.5 py-0.5 text-xs font-semibold text-white ring-1 ring-white/20">
+            <span className="rounded-lg bg-gradient-to-r from-pink-600/80 to-rose-500/70 dark:from-rose-400/70 dark:to-pink-500/60 backdrop-blur-sm px-2.5 py-0.5 text-xs font-semibold text-white ring-1 ring-white/20">
               {type || 'Hinglish'}
             </span>
           </div>
@@ -116,13 +116,13 @@ export const BatchCard: React.FC<BatchCardProps> = ({
         <div className="space-y-2">
           {/* Target Audience / byName */}
           <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300 text-xs">
-            <Target className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+            <Target className="w-4 h-4 text-pink-600 dark:text-pink-400 shrink-0" />
             <span className="font-medium truncate">{forText}</span>
           </div>
 
           {/* Dates */}
           <div className="flex items-center gap-1.5 text-gray-500 dark:text-gray-400 text-[11px]">
-            <Calendar className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+            <Calendar className="w-3.5 h-3.5 text-pink-600 dark:text-pink-400 shrink-0" />
             <span>Starts:</span>
             <span className="font-semibold text-gray-700 dark:text-gray-300">{startDate}</span>
             <span className="opacity-50">|</span>
@@ -133,14 +133,14 @@ export const BatchCard: React.FC<BatchCardProps> = ({
           {/* Price & Free badge */}
           <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-gray-100 dark:border-gray-800">
             <div className="flex items-center gap-2">
-              <span className="text-base sm:text-lg font-bold text-emerald-600 dark:text-emerald-400">
+              <span className="text-base sm:text-lg font-bold text-pink-600 dark:text-pink-400">
                 ₹ FREE
               </span>
               {price && price !== '0' && (
                 <span className="text-xs text-gray-400 line-through">₹{price}</span>
               )}
             </div>
-            <span className="text-[11px] bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 px-2 py-0.5 rounded-lg font-semibold border border-emerald-500/20">
+            <span className="text-[11px] bg-pink-500/15 text-pink-700 dark:text-pink-300 px-2 py-0.5 rounded-lg font-semibold border border-pink-500/20">
               100% Free For Students
             </span>
           </div>
@@ -153,7 +153,7 @@ export const BatchCard: React.FC<BatchCardProps> = ({
               e.stopPropagation();
               onOpen?.(id);
             }}
-            className="flex-1 py-2 px-3 rounded-xl border border-emerald-500/30 hover:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-colors active:scale-95"
+            className="flex-1 py-2 px-3 rounded-xl border border-pink-500/30 hover:bg-pink-500/10 text-pink-700 dark:text-pink-300 font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-colors active:scale-95 cursor-pointer"
           >
             <BookOpen className="w-4 h-4" />
             Study
@@ -161,10 +161,10 @@ export const BatchCard: React.FC<BatchCardProps> = ({
 
           <button
             onClick={handleEnroll}
-            className={`flex-1 py-2 px-3 rounded-xl font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all shadow-btn-3d active:scale-95 ${
+            className={`flex-1 py-2 px-3 rounded-xl font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all shadow-btn-3d active:scale-95 cursor-pointer ${
               enrolled
                 ? 'bg-rose-500/10 hover:bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-500/30'
-                : 'bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white'
+                : 'bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white'
             }`}
           >
             {enrolled ? (

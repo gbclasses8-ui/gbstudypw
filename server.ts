@@ -130,8 +130,8 @@ function renderWakingUpPage(): string {
       padding: 20px;
     }
     .card {
-      background: rgba(16, 28, 43, 0.85);
-      border: 1px solid rgba(52, 211, 153, 0.25);
+      background: rgba(28, 16, 25, 0.88);
+      border: 1px solid rgba(236, 72, 153, 0.25);
       border-radius: 24px;
       padding: 40px 30px;
       max-width: 440px;
@@ -146,19 +146,19 @@ function renderWakingUpPage(): string {
     h1 {
       font-size: 22px;
       margin: 0 0 10px;
-      color: #34d399;
+      color: #f472b6;
     }
     p {
       font-size: 13px;
-      color: #94a3b8;
+      color: #cbd5e1;
       line-height: 1.6;
       margin: 0 0 24px;
     }
     .spinner {
       width: 32px;
       height: 32px;
-      border: 3px solid rgba(52, 211, 153, 0.2);
-      border-top-color: #34d399;
+      border: 3px solid rgba(236, 72, 153, 0.2);
+      border-top-color: #ec4899;
       border-radius: 50%;
       animation: spin 1s linear infinite;
       margin: 0 auto 20px;
@@ -169,7 +169,7 @@ function renderWakingUpPage(): string {
     .btn {
       display: inline-block;
       padding: 10px 24px;
-      background: linear-gradient(135deg, #10b981, #059669);
+      background: linear-gradient(135deg, #ec4899, #be185d);
       color: white;
       text-decoration: none;
       border-radius: 12px;

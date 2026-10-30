@@ -38,7 +38,7 @@ export const Carousel: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full rounded-2xl overflow-hidden shadow-spring-sm my-6 bg-black/5 dark:bg-white/5 border border-emerald-500/15">
+    <div className="relative w-full rounded-2xl overflow-hidden shadow-spring-sm my-6 bg-black/5 dark:bg-white/5 border border-pink-500/20">
       {/* Aspect Ratio Container */}
       <div className="relative w-full aspect-[21/9] sm:aspect-[24/8] md:aspect-[28/9] max-h-[220px]">
         {SLIDES.map((slide, index) => (
@@ -82,7 +82,7 @@ export const Carousel: React.FC = () => {
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`h-2 rounded-full transition-all duration-300 ${
-              index === currentIndex ? 'w-6 bg-emerald-400' : 'w-2 bg-white/60 hover:bg-white'
+              index === currentIndex ? 'w-6 bg-pink-500' : 'w-2 bg-white/60 hover:bg-white'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

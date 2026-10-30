@@ -33,10 +33,10 @@ export const MyBatchesPage: React.FC<MyBatchesPageProps> = ({
 
   return (
     <div className="container mx-auto px-3 sm:px-6 py-6 max-w-7xl">
-      <div className="glass-card shadow-spring-sm border border-emerald-500/15 !rounded-2xl p-4 sm:p-6 mb-8">
+      <div className="glass-card shadow-spring-sm border border-pink-500/15 !rounded-2xl p-4 sm:p-6 mb-8">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-2xl font-bold text-[#1C2B22] dark:text-emerald-400">
+            <h1 className="text-2xl font-bold text-[#2a1523] dark:text-pink-400">
               My Batches
             </h1>
             <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1">
@@ -46,7 +46,7 @@ export const MyBatchesPage: React.FC<MyBatchesPageProps> = ({
 
           <button
             onClick={onExplore}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-xs sm:text-sm font-semibold shadow-xs hover:scale-[1.02] active:scale-95 transition-all"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-pink-500 to-rose-600 text-white text-xs sm:text-sm font-semibold shadow-xs hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
           >
             Explore More Batches
             <ArrowRight className="w-4 h-4" />
@@ -58,7 +58,7 @@ export const MyBatchesPage: React.FC<MyBatchesPageProps> = ({
             {batches.map((b) => (
               <div
                 key={b.batchId}
-                className="glass-card !p-0 !rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-glass-lg hover:-translate-y-[3px] flex flex-col justify-between border border-emerald-500/15"
+                className="glass-card !p-0 !rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-glass-lg hover:-translate-y-[3px] flex flex-col justify-between border border-pink-500/15"
               >
                 <div className="p-4 pb-2">
                   <h2 className="line-clamp-2 text-base font-bold text-gray-900 dark:text-gray-100">
@@ -67,7 +67,7 @@ export const MyBatchesPage: React.FC<MyBatchesPageProps> = ({
                 </div>
 
                 <div className="px-4 pb-2">
-                  <div className="w-full rounded-xl overflow-hidden aspect-video bg-black/5 dark:bg-black/30 border border-emerald-500/10">
+                  <div className="w-full rounded-xl overflow-hidden aspect-video bg-black/5 dark:bg-black/30 border border-pink-500/10">
                     <img
                       src={b.image || DEFAULT_BATCH_BANNER}
                       alt={b.name}
@@ -78,7 +78,7 @@ export const MyBatchesPage: React.FC<MyBatchesPageProps> = ({
 
                 <div className="p-4 pt-1 space-y-3">
                   <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
-                    <span className="font-semibold text-emerald-600 dark:text-emerald-400">
+                    <span className="font-semibold text-pink-600 dark:text-pink-400">
                       ✓ Enrolled & Ready
                     </span>
                     {b.enrolledAt && (
@@ -89,7 +89,7 @@ export const MyBatchesPage: React.FC<MyBatchesPageProps> = ({
                   <div className="flex gap-2 pt-1">
                     <button
                       onClick={() => onOpenBatch(b.batchId)}
-                      className="flex-1 py-2 px-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-btn-3d active:scale-95 transition-all"
+                      className="flex-1 py-2 px-3 rounded-xl bg-gradient-to-r from-pink-500 to-rose-600 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-btn-3d active:scale-95 transition-all cursor-pointer"
                     >
                       <BookOpen className="w-4 h-4" />
                       Study Now
@@ -97,7 +97,7 @@ export const MyBatchesPage: React.FC<MyBatchesPageProps> = ({
 
                     <button
                       onClick={() => handleUnenroll(b.batchId, b.name)}
-                      className="p-2 rounded-xl border border-rose-500/30 hover:bg-rose-500/10 text-rose-600 dark:text-rose-400 font-semibold text-xs transition-colors"
+                      className="p-2 rounded-xl border border-rose-500/30 hover:bg-rose-500/10 text-rose-600 dark:text-rose-400 font-semibold text-xs transition-colors cursor-pointer"
                       title="Unenroll"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -118,7 +118,7 @@ export const MyBatchesPage: React.FC<MyBatchesPageProps> = ({
             </p>
             <button
               onClick={onExplore}
-              className="mt-6 px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold text-sm shadow-spring-sm hover:scale-[1.02] active:scale-95 transition-all"
+              className="mt-6 px-6 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-rose-600 text-white font-semibold text-sm shadow-spring-sm hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
             >
               Browse Batches
             </button>

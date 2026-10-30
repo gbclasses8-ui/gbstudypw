@@ -11,6 +11,7 @@ import { ContactPage } from './pages/ContactPage';
 import { WatchModal } from './components/WatchModal';
 import { TopicItem } from './types';
 import { Check, X } from 'lucide-react';
+import { TelegramModal } from './components/TelegramModal';
 
 interface ToastState {
   id: number;
@@ -94,7 +95,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-white via-[#22c55e]/5 to-[#3ea560]/5 dark:from-slate-950 dark:via-[#3ea560]/10 dark:to-[#22c55e]/5 text-gray-900 dark:text-gray-100">
+    <div className="flex min-h-screen bg-gradient-to-br from-white via-[#ec4899]/5 to-[#f43f5e]/5 dark:from-slate-950 dark:via-[#f43f5e]/10 dark:to-[#ec4899]/5 text-gray-900 dark:text-gray-100">
       {/* Sidebar navigation */}
       <Sidebar
         currentPath={currentPath}
@@ -110,7 +111,7 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-w-0 bg-gradient-to-br from-transparent via-[#22c55e]/3 to-[#3ea560]/3 dark:via-[#22c55e]/5 dark:to-[#3ea560]/5">
+      <div className="flex-1 flex flex-col min-w-0 bg-gradient-to-br from-transparent via-[#ec4899]/3 to-[#f43f5e]/3 dark:via-[#ec4899]/5 dark:to-[#f43f5e]/5">
         <Navbar
           onBack={handleBack}
           canGoBack={history.length > 1 || currentPath !== '/study/batches'}
@@ -185,6 +186,9 @@ export default function App() {
         </main>
       </div>
 
+      {/* Telegram Community Popup Modal */}
+      <TelegramModal />
+
       {/* Video Lecture Player Modal */}
       {activeVideoTopic && (
         <WatchModal
@@ -196,7 +200,7 @@ export default function App() {
       {/* Notes PDF Preview Modal fallback */}
       {activeNote && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-gray-900 rounded-2xl max-w-lg w-full p-6 border border-emerald-500/30 text-center space-y-4">
+          <div className="bg-white dark:bg-gray-900 rounded-2xl max-w-lg w-full p-6 border border-pink-500/30 text-center space-y-4">
             <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100">
               {activeNote.title}
             </h3>
@@ -205,7 +209,7 @@ export default function App() {
             </p>
             <button
               onClick={() => setActiveNote(null)}
-              className="px-6 py-2 rounded-xl bg-emerald-600 text-white font-semibold text-sm"
+              className="px-6 py-2 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-semibold text-sm transition-colors cursor-pointer"
             >
               Close
             </button>
@@ -221,7 +225,7 @@ export default function App() {
             className={`pointer-events-auto flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-spring-md text-sm font-semibold transition-all duration-300 ${
               toast.isError
                 ? 'bg-rose-600 text-white border border-rose-700'
-                : 'bg-emerald-600 text-white border border-emerald-700'
+                : 'bg-pink-600 text-white border border-pink-700'
             }`}
           >
             {toast.isError ? (

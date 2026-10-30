@@ -6,84 +6,30 @@ export const APP_LOGO = '/gb-study-logo.png';
 export const FALLBACK_LOGO = 'https://i.ibb.co/Q3g9fGSt/1791541921524.png';
 export const DEFAULT_BATCH_BANNER = '/default-batch-banner.png';
 
-const BASE_URL = ''; // Same-origin /api calls, proxied by Vite (dev) or vercel.json rewrites (prod)
-const UPSTREAM_URL = 'https://pwmarco-og-06656c44b005-d9e101c9f09c.herokuapp.com';
+const BASE_URL = ''; // Relative path utilizes Vite proxy / server proxy
 
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-function request(url: string, options: RequestInit): Promise<Response> {
-  return fetch(url, {
-    ...options,
-    headers: {
-      Accept: 'application/json',
-      ...(options.headers || {})
-    }
-  });
-}
-
-// The upstream dyno sleeps when idle and replies 502/503 while waking up.
-// Retrying avoids an empty batches / lectures screen on the first cold request.
 async function safeFetch(url: string, options: RequestInit = {}): Promise<Response> {
-  const attempts = 3;
-
-  for (let attempt = 1; attempt <= attempts; attempt++) {
-    try {
-      const res = await request(url, options);
-      const retryable = res.status === 502 || res.status === 503 || res.status === 504;
-      if (retryable && attempt < attempts) {
-        await sleep(1000 * attempt);
-        continue;
+  try {
+    const res = await fetch(url, {
+      ...options,
+      headers: {
+        'Accept': 'application/json',
+        ...(options.headers || {})
       }
-      if (!res.ok && !url.startsWith('https://')) {
-        // Fallback directly to upstream if the same-origin proxy returned a non-200
-        return await request(`${UPSTREAM_URL}${url}`, options);
-      }
-      return res;
-    } catch (err) {
-      if (attempt < attempts) {
-        await sleep(1000 * attempt);
-        continue;
-      }
-      if (!url.startsWith('https://')) {
-        return await request(`${UPSTREAM_URL}${url}`, options);
-      }
-      throw err;
+    });
+    if (!res.ok && !url.startsWith('https://')) {
+      // Fallback directly to heroku backend if local proxy gave a non-200
+      const fallbackUrl = `https://pwmarco-og-06656c44b005-d9e101c9f09c.herokuapp.com${url}`;
+      return await fetch(fallbackUrl, options);
     }
-  }
-
-  throw new Error('Request failed');
-}
-
-// The upstream paginates chapters and lectures (20 per page) without any
-// totalPages metadata, so keep reading pages until an empty/repeating page.
-const MAX_PAGES = 20;
-
-async function fetchAllPages<T extends { _id?: string }>(
-  buildUrl: (page: number) => string
-): Promise<T[]> {
-  const items: T[] = [];
-  const seen = new Set<string>();
-
-  for (let page = 1; page <= MAX_PAGES; page++) {
-    const res = await safeFetch(buildUrl(page));
-    if (!res.ok) break;
-
-    const json = await res.json();
-    const data: T[] = Array.isArray(json.data) ? json.data : [];
-
-    const before = items.length;
-    for (const item of data) {
-      if (item?._id) {
-        if (seen.has(item._id)) continue;
-        seen.add(item._id);
-      }
-      items.push(item);
+    return res;
+  } catch (err) {
+    if (!url.startsWith('https://')) {
+      const fallbackUrl = `https://pwmarco-og-06656c44b005-d9e101c9f09c.herokuapp.com${url}`;
+      return await fetch(fallbackUrl, options);
     }
-
-    if (data.length === 0 || items.length === before) break;
+    throw err;
   }
-
-  return items;
 }
 
 export async function getAllBatches(page = 1): Promise<{ data: Batch[]; currentPage: number; totalPages: number }> {
@@ -131,9 +77,9 @@ export async function getBatchDetails(batchId: string): Promise<BatchDetails | n
   }
 }
 
-export async function getBatchAnnouncements(batchId: string): Promise<Announcement[]> {
+export async function getBatchAnnouncements(batchId: string, page = 1): Promise<Announcement[]> {
   try {
-    const res = await safeFetch(`${BASE_URL}/api/BatchInfo?BatchId=${batchId}&Type=announcement&page=1`);
+    const res = await safeFetch(`${BASE_URL}/api/BatchInfo?BatchId=${batchId}&Type=announcement&page=${page}`);
     if (!res.ok) return [];
     const json = await res.json();
     return json.data || [];
@@ -143,11 +89,12 @@ export async function getBatchAnnouncements(batchId: string): Promise<Announceme
   }
 }
 
-export async function getSubjectChapters(batchId: string, subjectId: string): Promise<Chapter[]> {
+export async function getSubjectChapters(batchId: string, subjectId: string, page = 1): Promise<Chapter[]> {
   try {
-    return await fetchAllPages<Chapter>(
-      (page) => `${BASE_URL}/api/SubjectInfo?BatchId=${batchId}&SubjectId=${subjectId}&page=${page}`
-    );
+    const res = await safeFetch(`${BASE_URL}/api/SubjectInfo?BatchId=${batchId}&SubjectId=${subjectId}&page=${page}`);
+    if (!res.ok) throw new Error('Failed to fetch subject chapters');
+    const json = await res.json();
+    return json.data || [];
   } catch (e) {
     console.error('getSubjectChapters error:', e);
     return [];
@@ -158,14 +105,17 @@ export async function getTopicContents(
   batchId: string,
   subjectId: string,
   topicId: string,
-  contentType = 'all'
+  contentType = 'all',
+  page = 1
 ): Promise<TopicItem[]> {
-  const typeParam = contentType === 'lectures' ? 'videos' : contentType;
   try {
-    return await fetchAllPages<TopicItem>(
-      (page) =>
-        `${BASE_URL}/api/TopicInfo?BatchId=${batchId}&SubjectId=${subjectId}&TopicId=${topicId}&ContentType=${typeParam}&page=${page}`
+    const typeParam = contentType === 'lectures' ? 'videos' : contentType;
+    const res = await safeFetch(
+      `${BASE_URL}/api/TopicInfo?BatchId=${batchId}&SubjectId=${subjectId}&TopicId=${topicId}&ContentType=${typeParam}&page=${page}`
     );
+    if (!res.ok) throw new Error('Failed to fetch topic contents');
+    const json = await res.json();
+    return json.data || [];
   } catch (e) {
     console.error('getTopicContents error:', e);
     return [];

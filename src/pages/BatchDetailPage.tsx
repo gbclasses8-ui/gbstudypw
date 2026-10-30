@@ -99,7 +99,7 @@ export const BatchDetailPage: React.FC<BatchDetailPageProps> = ({
         <p className="text-lg font-bold text-gray-800 dark:text-gray-200">Batch details not found</p>
         <button
           onClick={onBack}
-          className="mt-4 px-5 py-2 rounded-xl bg-emerald-600 text-white text-sm font-semibold"
+          className="mt-4 px-5 py-2 rounded-xl bg-pink-600 hover:bg-pink-700 text-white text-sm font-semibold cursor-pointer"
         >
           Return to Batches
         </button>
@@ -115,16 +115,16 @@ export const BatchDetailPage: React.FC<BatchDetailPageProps> = ({
       {/* Back button */}
       <button
         onClick={onBack}
-        className="mb-4 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:underline"
+        className="mb-4 inline-flex items-center gap-1.5 text-sm font-semibold text-pink-700 dark:text-pink-400 hover:underline cursor-pointer"
       >
         <ArrowLeft className="w-4 h-4" />
         Back to Batches
       </button>
 
       {/* Batch Hero Banner Card */}
-      <div className="glass-card !rounded-2xl p-4 sm:p-6 mb-6 overflow-hidden border border-emerald-500/20">
+      <div className="glass-card !rounded-2xl p-4 sm:p-6 mb-6 overflow-hidden border border-pink-500/20">
         <div className="flex flex-col md:flex-row gap-6 items-center">
-          <div className="w-full md:w-72 h-44 rounded-xl overflow-hidden shrink-0 bg-black/10 border border-emerald-500/15">
+          <div className="w-full md:w-72 h-44 rounded-xl overflow-hidden shrink-0 bg-black/10 border border-pink-500/15">
             <img
               src={batch.batchImage || DEFAULT_BATCH_BANNER}
               alt={batchName}
@@ -137,22 +137,22 @@ export const BatchDetailPage: React.FC<BatchDetailPageProps> = ({
               <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
                 {batchName}
               </h1>
-              <span className="text-xs bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 font-semibold px-3 py-1 rounded-full border border-emerald-500/25">
+              <span className="text-xs bg-pink-500/15 text-pink-700 dark:text-pink-300 font-semibold px-3 py-1 rounded-full border border-pink-500/25">
                 {batch.language || 'Hinglish'}
               </span>
             </div>
 
             <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 flex items-center gap-2">
-              <Target className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <Target className="w-4 h-4 text-pink-600 dark:text-pink-400 shrink-0" />
               <span>{batch.byName || 'Complete Preparation'}</span>
             </p>
 
             <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
               <span className="flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5 text-emerald-500" />
+                <Calendar className="w-3.5 h-3.5 text-pink-500" />
                 {batch.startDate || 'Started'} — {batch.endDate || 'Ongoing'}
               </span>
-              <span className="font-bold text-emerald-600 dark:text-emerald-400">
+              <span className="font-bold text-pink-600 dark:text-pink-400">
                 • 100% Free Access
               </span>
             </div>
@@ -164,7 +164,7 @@ export const BatchDetailPage: React.FC<BatchDetailPageProps> = ({
                 className={`px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition-all shadow-btn-3d active:scale-95 cursor-pointer ${
                   enrolled
                     ? 'bg-rose-500/15 hover:bg-rose-500/25 text-rose-600 dark:text-rose-400 border border-rose-500/30'
-                    : 'bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white'
+                    : 'bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white'
                 }`}
               >
                 {enrolled ? (
@@ -185,13 +185,13 @@ export const BatchDetailPage: React.FC<BatchDetailPageProps> = ({
       </div>
 
       {/* Tabs Menu */}
-      <div className="flex gap-2 border-b border-emerald-500/20 mb-6 pb-2 overflow-x-auto">
+      <div className="flex gap-2 border-b border-pink-500/20 mb-6 pb-2 overflow-x-auto">
         <button
           onClick={() => setActiveTab('classes')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-sm transition-all whitespace-nowrap cursor-pointer ${
             activeTab === 'classes'
-              ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30'
-              : 'text-gray-600 dark:text-gray-400 hover:bg-emerald-500/5'
+              ? 'bg-pink-500/15 text-pink-700 dark:text-pink-300 border border-pink-500/30'
+              : 'text-gray-600 dark:text-gray-400 hover:bg-pink-500/5'
           }`}
         >
           <BookOpen className="w-4 h-4" />
@@ -202,8 +202,8 @@ export const BatchDetailPage: React.FC<BatchDetailPageProps> = ({
           onClick={() => setActiveTab('tests')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-sm transition-all whitespace-nowrap cursor-pointer ${
             activeTab === 'tests'
-              ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30'
-              : 'text-gray-600 dark:text-gray-400 hover:bg-emerald-500/5'
+              ? 'bg-pink-500/15 text-pink-700 dark:text-pink-300 border border-pink-500/30'
+              : 'text-gray-600 dark:text-gray-400 hover:bg-pink-500/5'
           }`}
         >
           <FileText className="w-4 h-4" />
@@ -214,8 +214,8 @@ export const BatchDetailPage: React.FC<BatchDetailPageProps> = ({
           onClick={() => setActiveTab('announcements')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-sm transition-all whitespace-nowrap cursor-pointer ${
             activeTab === 'announcements'
-              ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30'
-              : 'text-gray-600 dark:text-gray-400 hover:bg-emerald-500/5'
+              ? 'bg-pink-500/15 text-pink-700 dark:text-pink-300 border border-pink-500/30'
+              : 'text-gray-600 dark:text-gray-400 hover:bg-pink-500/5'
           }`}
         >
           <Bell className="w-4 h-4" />
@@ -226,7 +226,7 @@ export const BatchDetailPage: React.FC<BatchDetailPageProps> = ({
       {/* Tab: Classes / Subjects Grid */}
       {activeTab === 'classes' && (
         <div>
-          <h2 className="text-xl font-bold mb-4 text-[#1C2B22] dark:text-emerald-400">
+          <h2 className="text-xl font-bold mb-4 text-[#2a1523] dark:text-pink-400">
             Subjects
           </h2>
 
@@ -252,9 +252,9 @@ export const BatchDetailPage: React.FC<BatchDetailPageProps> = ({
                         sub.subject
                       )
                     }
-                    className="flex items-center gap-4 bg-white/90 dark:bg-[#1C2B22]/80 border border-emerald-500/15 dark:border-teal-500/20 rounded-xl p-4 hover:shadow-spring-md hover:-translate-y-0.5 cursor-pointer divshadow transition-all duration-300"
+                    className="flex items-center gap-4 bg-white/90 dark:bg-[#2a1523]/80 border border-pink-500/15 dark:border-rose-500/20 rounded-xl p-4 hover:shadow-spring-md hover:-translate-y-0.5 cursor-pointer divshadow transition-all duration-300"
                   >
-                    <div className="w-12 h-12 rounded-xl overflow-hidden shrink-0 bg-emerald-500/10 flex items-center justify-center p-1 border border-emerald-500/20">
+                    <div className="w-12 h-12 rounded-xl overflow-hidden shrink-0 bg-pink-500/10 flex items-center justify-center p-1 border border-pink-500/20">
                       {subImg ? (
                         <img
                           src={subImg}
@@ -262,7 +262,7 @@ export const BatchDetailPage: React.FC<BatchDetailPageProps> = ({
                           className="w-full h-full object-contain"
                         />
                       ) : (
-                        <BookOpen className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                        <BookOpen className="w-6 h-6 text-pink-600 dark:text-pink-400" />
                       )}
                     </div>
 
@@ -275,7 +275,7 @@ export const BatchDetailPage: React.FC<BatchDetailPageProps> = ({
                           {teacherName}
                         </p>
                       )}
-                      <p className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mt-1">
+                      <p className="text-xs font-semibold text-pink-600 dark:text-pink-400 mt-1">
                         {sub.tagCount || 0} Chapters
                       </p>
                     </div>
@@ -294,7 +294,7 @@ export const BatchDetailPage: React.FC<BatchDetailPageProps> = ({
       {/* Tab: Tests */}
       {activeTab === 'tests' && (
         <div className="space-y-4">
-          <h2 className="text-xl font-bold mb-4 text-[#1C2B22] dark:text-emerald-400">
+          <h2 className="text-xl font-bold mb-4 text-[#2a1523] dark:text-pink-400">
             Tests & Assessments
           </h2>
 
@@ -303,7 +303,7 @@ export const BatchDetailPage: React.FC<BatchDetailPageProps> = ({
               {tests.map((test) => (
                 <div
                   key={test._id}
-                  className="glass-card p-4 rounded-xl border border-emerald-500/15 flex justify-between items-center"
+                  className="glass-card p-4 rounded-xl border border-pink-500/15 flex justify-between items-center"
                 >
                   <div>
                     <h3 className="font-bold text-sm text-gray-800 dark:text-gray-200">
@@ -313,7 +313,7 @@ export const BatchDetailPage: React.FC<BatchDetailPageProps> = ({
                       Marks: {test.totalMarks || 100} • Questions: {test.totalQuestions || 25}
                     </p>
                   </div>
-                  <span className="px-3 py-1 rounded-lg text-xs font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                  <span className="px-3 py-1 rounded-lg text-xs font-semibold bg-pink-500/10 text-pink-600 dark:text-pink-400 border border-pink-500/20">
                     Free
                   </span>
                 </div>
@@ -330,7 +330,7 @@ export const BatchDetailPage: React.FC<BatchDetailPageProps> = ({
       {/* Tab: Announcements */}
       {activeTab === 'announcements' && (
         <div className="space-y-4">
-          <h2 className="text-xl font-bold mb-4 text-[#1C2B22] dark:text-emerald-400">
+          <h2 className="text-xl font-bold mb-4 text-[#2a1523] dark:text-pink-400">
             📢 Announcements
           </h2>
 
@@ -339,7 +339,7 @@ export const BatchDetailPage: React.FC<BatchDetailPageProps> = ({
               {announcements.map((ann) => (
                 <div
                   key={ann._id}
-                  className="glass-card p-5 rounded-xl border border-emerald-500/15 space-y-2"
+                  className="glass-card p-5 rounded-xl border border-pink-500/15 space-y-2"
                 >
                   <div className="flex items-center justify-between">
                     <h3 className="font-bold text-base text-gray-900 dark:text-gray-100">

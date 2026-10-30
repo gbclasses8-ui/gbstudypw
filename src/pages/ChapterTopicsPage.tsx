@@ -75,15 +75,15 @@ export const ChapterTopicsPage: React.FC<ChapterTopicsPageProps> = ({
       {/* Back button */}
       <button
         onClick={onBack}
-        className="mb-4 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:underline"
+        className="mb-4 inline-flex items-center gap-1.5 text-sm font-semibold text-pink-700 dark:text-pink-400 hover:underline cursor-pointer"
       >
         <ArrowLeft className="w-4 h-4" />
         Back to Chapters
       </button>
 
       {/* Header */}
-      <div className="glass-card !rounded-2xl p-5 mb-6 border border-emerald-500/20">
-        <p className="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400 tracking-wider">
+      <div className="glass-card !rounded-2xl p-5 mb-6 border border-pink-500/20">
+        <p className="text-xs uppercase font-bold text-pink-600 dark:text-pink-400 tracking-wider">
           Chapter Lectures & Materials
         </p>
         <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 mt-1">
@@ -92,13 +92,13 @@ export const ChapterTopicsPage: React.FC<ChapterTopicsPageProps> = ({
       </div>
 
       {/* Filter Tabs matching original */}
-      <div className="flex gap-2 border-b border-emerald-500/20 mb-6 pb-2 overflow-x-auto">
+      <div className="flex gap-2 border-b border-pink-500/20 mb-6 pb-2 overflow-x-auto">
         <button
           onClick={() => setActiveFilter('all')}
           className={`px-4 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
             activeFilter === 'all'
-              ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30'
-              : 'text-gray-600 dark:text-gray-400 hover:text-emerald-600'
+              ? 'bg-pink-500/15 text-pink-700 dark:text-pink-300 border border-pink-500/30'
+              : 'text-gray-600 dark:text-gray-400 hover:text-pink-600'
           }`}
         >
           All
@@ -107,8 +107,8 @@ export const ChapterTopicsPage: React.FC<ChapterTopicsPageProps> = ({
           onClick={() => setActiveFilter('lectures')}
           className={`px-4 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
             activeFilter === 'lectures'
-              ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30'
-              : 'text-gray-600 dark:text-gray-400 hover:text-emerald-600'
+              ? 'bg-pink-500/15 text-pink-700 dark:text-pink-300 border border-pink-500/30'
+              : 'text-gray-600 dark:text-gray-400 hover:text-pink-600'
           }`}
         >
           Lectures
@@ -117,8 +117,8 @@ export const ChapterTopicsPage: React.FC<ChapterTopicsPageProps> = ({
           onClick={() => setActiveFilter('notes')}
           className={`px-4 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
             activeFilter === 'notes'
-              ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30'
-              : 'text-gray-600 dark:text-gray-400 hover:text-emerald-600'
+              ? 'bg-pink-500/15 text-pink-700 dark:text-pink-300 border border-pink-500/30'
+              : 'text-gray-600 dark:text-gray-400 hover:text-pink-600'
           }`}
         >
           Notes
@@ -127,8 +127,8 @@ export const ChapterTopicsPage: React.FC<ChapterTopicsPageProps> = ({
           onClick={() => setActiveFilter('dpps')}
           className={`px-4 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
             activeFilter === 'dpps'
-              ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30'
-              : 'text-gray-600 dark:text-gray-400 hover:text-emerald-600'
+              ? 'bg-pink-500/15 text-pink-700 dark:text-pink-300 border border-pink-500/30'
+              : 'text-gray-600 dark:text-gray-400 hover:text-pink-600'
           }`}
         >
           DPP
@@ -161,13 +161,13 @@ export const ChapterTopicsPage: React.FC<ChapterTopicsPageProps> = ({
             return (
               <div
                 key={item._id}
-                className="glass-card p-4 rounded-2xl border border-emerald-500/15 hover:shadow-spring-sm transition-all flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between"
+                className="glass-card p-4 rounded-2xl border border-pink-500/15 hover:shadow-spring-sm transition-all flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between"
               >
                 {/* Left side: Thumbnail & Info */}
                 <div className="flex items-start gap-4 flex-1 min-w-0">
                   <div
                     onClick={() => onPlayVideo(item)}
-                    className="relative w-28 sm:w-36 aspect-video rounded-xl overflow-hidden shrink-0 bg-black/10 cursor-pointer group border border-emerald-500/20"
+                    className="relative w-28 sm:w-36 aspect-video rounded-xl overflow-hidden shrink-0 bg-black/10 cursor-pointer group border border-pink-500/20"
                   >
                     <img
                       src={thumbnail}
@@ -175,7 +175,7 @@ export const ChapterTopicsPage: React.FC<ChapterTopicsPageProps> = ({
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
                     />
                     <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                      <div className="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center shadow-md">
+                      <div className="w-8 h-8 rounded-full bg-pink-500 text-white flex items-center justify-center shadow-md">
                         <Play className="w-4 h-4 fill-white ml-0.5" />
                       </div>
                     </div>
@@ -184,7 +184,7 @@ export const ChapterTopicsPage: React.FC<ChapterTopicsPageProps> = ({
                   <div className="flex-1 min-w-0 space-y-1.5">
                     <h3
                       onClick={() => onPlayVideo(item)}
-                      className="font-bold text-sm sm:text-base text-gray-900 dark:text-gray-100 hover:text-emerald-600 dark:hover:text-emerald-400 cursor-pointer line-clamp-2"
+                      className="font-bold text-sm sm:text-base text-gray-900 dark:text-gray-100 hover:text-pink-600 dark:hover:text-pink-400 cursor-pointer line-clamp-2"
                     >
                       {item.topic}
                     </h3>
@@ -192,13 +192,13 @@ export const ChapterTopicsPage: React.FC<ChapterTopicsPageProps> = ({
                     <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
                       {item.videoDetails?.duration && (
                         <span className="flex items-center gap-1">
-                          <Clock className="w-3.5 h-3.5 text-emerald-500" />
+                          <Clock className="w-3.5 h-3.5 text-pink-500" />
                           {item.videoDetails.duration}
                         </span>
                       )}
                       {item.date && (
                         <span className="flex items-center gap-1">
-                          <Calendar className="w-3.5 h-3.5 text-emerald-500" />
+                          <Calendar className="w-3.5 h-3.5 text-pink-500" />
                           {new Date(item.date).toLocaleDateString()}
                         </span>
                       )}
@@ -211,7 +211,7 @@ export const ChapterTopicsPage: React.FC<ChapterTopicsPageProps> = ({
                   {hasVideo && (
                     <button
                       onClick={() => onPlayVideo(item)}
-                      className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white text-xs font-semibold shadow-xs transition-all active:scale-95 cursor-pointer"
+                      className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white text-xs font-semibold shadow-xs transition-all active:scale-95 cursor-pointer"
                     >
                       <Play className="w-3.5 h-3.5 fill-current" />
                       Watch
@@ -227,7 +227,7 @@ export const ChapterTopicsPage: React.FC<ChapterTopicsPageProps> = ({
                           : '';
                         onViewNotes(noteUrl, note?.topic || item.topic);
                       }}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-emerald-500/30 hover:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-xs font-semibold transition-colors"
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-pink-500/30 hover:bg-pink-500/10 text-pink-700 dark:text-pink-300 text-xs font-semibold transition-colors cursor-pointer"
                     >
                       <FileText className="w-3.5 h-3.5" />
                       Notes
@@ -240,7 +240,7 @@ export const ChapterTopicsPage: React.FC<ChapterTopicsPageProps> = ({
                         const dpp = item.exerciseIds?.[0];
                         onToast(`Opening DPP: ${dpp?.title || 'Quiz'}`);
                       }}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-emerald-500/30 hover:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-xs font-semibold transition-colors"
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-pink-500/30 hover:bg-pink-500/10 text-pink-700 dark:text-pink-300 text-xs font-semibold transition-colors cursor-pointer"
                     >
                       <CheckCircle2 className="w-3.5 h-3.5" />
                       DPP

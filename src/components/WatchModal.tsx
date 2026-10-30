@@ -23,22 +23,22 @@ export const WatchModal: React.FC<WatchModalProps> = ({ topic, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-2 sm:p-6 overflow-y-auto">
-      <div className="w-full max-w-4xl bg-gray-900 border border-emerald-500/30 rounded-2xl overflow-hidden shadow-2xl flex flex-col my-auto text-white">
+      <div className="w-full max-w-4xl bg-gray-900 border border-pink-500/30 rounded-2xl overflow-hidden shadow-2xl flex flex-col my-auto text-white">
         {/* Top Header */}
         <div className="p-3 sm:p-4 bg-gray-950/80 border-b border-gray-800 flex items-center justify-between">
           <button
             onClick={onClose}
-            className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 hover:text-white"
+            className="flex items-center gap-2 text-xs sm:text-sm text-gray-300 hover:text-white cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             Back
           </button>
-          <span className="text-xs font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+          <span className="text-xs font-semibold text-pink-400 bg-pink-500/10 px-2.5 py-1 rounded-full border border-pink-500/20">
             GB STUDY PLAYER
           </span>
           <button
             onClick={onClose}
-            className="p-1 rounded-lg text-gray-400 hover:text-white hover:bg-white/10"
+            className="p-1 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -54,10 +54,10 @@ export const WatchModal: React.FC<WatchModalProps> = ({ topic, onClose }) => {
 
           {/* Playing Simulation Overlay */}
           <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/90 text-white flex items-center justify-center shadow-lg transition-transform hover:scale-110 cursor-pointer">
+            <div className="w-16 h-16 rounded-full bg-pink-500/90 text-white flex items-center justify-center shadow-lg transition-transform hover:scale-110 cursor-pointer">
               <Play className="w-8 h-8 fill-white ml-1" />
             </div>
-            <p className="mt-4 text-xs sm:text-sm font-semibold tracking-wide text-emerald-300 bg-black/60 px-4 py-1.5 rounded-full border border-emerald-500/30">
+            <p className="mt-4 text-xs sm:text-sm font-semibold tracking-wide text-pink-300 bg-black/60 px-4 py-1.5 rounded-full border border-pink-500/30">
               Streaming High Quality • {duration || 'Full Session'}
             </p>
           </div>
@@ -67,7 +67,7 @@ export const WatchModal: React.FC<WatchModalProps> = ({ topic, onClose }) => {
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
-                className="p-1.5 rounded-full bg-white/20 hover:bg-white/30"
+                className="p-1.5 rounded-full bg-white/20 hover:bg-white/30 cursor-pointer"
               >
                 <Play className="w-4 h-4 fill-white" />
               </button>
@@ -82,8 +82,8 @@ export const WatchModal: React.FC<WatchModalProps> = ({ topic, onClose }) => {
                   <button
                     key={s}
                     onClick={() => setSpeed(s)}
-                    className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
-                      speed === s ? 'bg-emerald-500 text-white' : 'text-gray-400 hover:text-white'
+                    className={`px-1.5 py-0.5 rounded text-[10px] font-bold cursor-pointer ${
+                      speed === s ? 'bg-pink-500 text-white' : 'text-gray-400 hover:text-white'
                     }`}
                   >
                     {s}x
@@ -91,7 +91,7 @@ export const WatchModal: React.FC<WatchModalProps> = ({ topic, onClose }) => {
                 ))}
               </div>
 
-              <span className="flex items-center gap-1 text-[11px] text-emerald-400">
+              <span className="flex items-center gap-1 text-[11px] text-pink-400">
                 <Settings className="w-3.5 h-3.5" /> 720p HD
               </span>
               <Maximize className="w-4 h-4 cursor-pointer text-gray-300 hover:text-white" />
@@ -111,7 +111,7 @@ export const WatchModal: React.FC<WatchModalProps> = ({ topic, onClose }) => {
               href="https://t.me/GBFreestudy"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-emerald-400 hover:underline font-semibold"
+              className="text-pink-400 hover:underline font-semibold"
             >
               Need help? Join @GBFreestudy on Telegram
             </a>

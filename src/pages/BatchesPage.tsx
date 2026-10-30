@@ -74,8 +74,8 @@ export const BatchesPage: React.FC<BatchesPageProps> = ({ onOpenBatch, onToast }
 
   return (
     <div className="container mx-auto px-3 sm:px-6 py-6 max-w-7xl">
-      <div className="glass-card shadow-spring-sm border border-emerald-500/15 !rounded-2xl p-4 sm:p-6 mb-8">
-        <h1 className="text-2xl font-bold mb-4 text-[#1C2B22] dark:text-emerald-400">
+      <div className="glass-card shadow-spring-sm border border-pink-500/15 !rounded-2xl p-4 sm:p-6 mb-8">
+        <h1 className="text-2xl font-bold mb-4 text-[#2a1523] dark:text-pink-400">
           Batches
         </h1>
 
@@ -83,18 +83,18 @@ export const BatchesPage: React.FC<BatchesPageProps> = ({ onOpenBatch, onToast }
         <form onSubmit={handleSearchSubmit} className="divshadow flex flex-wrap items-center gap-3 sm:gap-5 mb-2">
           <div className="relative w-full">
             <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-              <Search strokeWidth={2.5} className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              <Search strokeWidth={2.5} className="w-4 h-4 text-pink-600 dark:text-pink-400" />
             </div>
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-grow block w-full p-3.5 ps-10 text-sm divshadow border border-emerald-500/20 dark:border-teal-500/25 rounded-xl focus:border-emerald-500 dark:focus:border-teal-400 focus:outline-hidden bg-white/80 dark:bg-[#1C2B22]/70 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-1 focus:ring-emerald-500 transition-all"
+              className="flex-grow block w-full p-3.5 ps-10 text-sm divshadow border border-pink-500/20 dark:border-rose-500/25 rounded-xl focus:border-pink-500 dark:focus:border-rose-400 focus:outline-hidden bg-white/80 dark:bg-[#2a1523]/70 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:ring-1 focus:ring-pink-500 transition-all"
               placeholder="Search Your Batch"
             />
             <button
               type="submit"
-              className="absolute end-2 top-2 bottom-2 font-semibold rounded-lg text-xs sm:text-sm px-4 bg-gradient-to-r from-emerald-500 to-teal-600 text-white hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-spring-sm hover:shadow-spring-md flex items-center justify-center cursor-pointer"
+              className="absolute end-2 top-2 bottom-2 font-semibold rounded-lg text-xs sm:text-sm px-4 bg-gradient-to-r from-pink-500 to-rose-600 text-white hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-spring-sm hover:shadow-spring-md flex items-center justify-center cursor-pointer"
             >
               Search
             </button>
@@ -137,7 +137,7 @@ export const BatchesPage: React.FC<BatchesPageProps> = ({ onOpenBatch, onToast }
                 <button
                   onClick={() => !loading && setPage((p) => p + 1)}
                   disabled={loading}
-                  className="px-6 py-2.5 rounded-xl border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/10 font-semibold text-sm transition-all active:scale-95 disabled:opacity-50"
+                  className="px-6 py-2.5 rounded-xl border border-pink-500/30 text-pink-700 dark:text-pink-300 hover:bg-pink-500/10 font-semibold text-sm transition-all active:scale-95 disabled:opacity-50 cursor-pointer"
                 >
                   {loading ? 'Loading...' : 'Load More Batches'}
                 </button>

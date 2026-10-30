@@ -12,13 +12,13 @@ export const DonatePage: React.FC = () => {
       <div className="petal-particle" style={{ left: '75%', animationDuration: '35s', animationDelay: '2s' }} />
       <div className="petal-particle" style={{ left: '90%', animationDuration: '26s', animationDelay: '5s' }} />
 
-      <div className="relative z-10 max-w-xl w-full glass-card p-6 sm:p-8 rounded-3xl border border-emerald-500/25 shadow-glass-lg text-center space-y-6">
-        <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-pink-400 via-rose-400 to-emerald-400 flex items-center justify-center shadow-md animate-float">
+      <div className="relative z-10 max-w-xl w-full glass-card p-6 sm:p-8 rounded-3xl border border-pink-500/25 shadow-glass-lg text-center space-y-6">
+        <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-pink-400 via-rose-500 to-pink-600 flex items-center justify-center shadow-md animate-float">
           <Heart className="w-8 h-8 text-white fill-white" />
         </div>
 
         <div>
-          <span className="text-xs uppercase font-bold tracking-widest text-emerald-600 dark:text-emerald-400">
+          <span className="text-xs uppercase font-bold tracking-widest text-pink-600 dark:text-pink-400">
             Support Education For Everyone
           </span>
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mt-2">
@@ -30,8 +30,8 @@ export const DonatePage: React.FC = () => {
           </p>
         </div>
 
-        <div className="p-4 rounded-2xl bg-emerald-500/10 dark:bg-emerald-400/10 border border-emerald-500/20 text-left space-y-2">
-          <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-300 font-bold text-sm">
+        <div className="p-4 rounded-2xl bg-pink-500/10 dark:bg-pink-400/10 border border-pink-500/20 text-left space-y-2">
+          <div className="flex items-center gap-2 text-pink-700 dark:text-pink-300 font-bold text-sm">
             <Sparkles className="w-4 h-4" />
             How You Can Help:
           </div>
@@ -46,7 +46,7 @@ export const DonatePage: React.FC = () => {
           href={TELEGRAM_LINK}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2.5 w-full py-3 px-6 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-semibold text-sm shadow-btn-3d active:scale-95 transition-all"
+          className="inline-flex items-center justify-center gap-2.5 w-full py-3 px-6 rounded-xl bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-semibold text-sm shadow-btn-3d active:scale-95 transition-all cursor-pointer"
         >
           <Send className="w-4 h-4 fill-white" />
           Contact Admin on Telegram @GBFreestudy

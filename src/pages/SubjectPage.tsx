@@ -66,35 +66,35 @@ export const SubjectPage: React.FC<SubjectPageProps> = ({
       {/* Back button */}
       <button
         onClick={onBack}
-        className="mb-4 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:underline"
+        className="mb-4 inline-flex items-center gap-1.5 text-sm font-semibold text-pink-700 dark:text-pink-400 hover:underline cursor-pointer"
       >
         <ArrowLeft className="w-4 h-4" />
         Back to Batch
       </button>
 
       {/* Header */}
-      <div className="glass-card !rounded-2xl p-5 mb-6 border border-emerald-500/20 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+      <div className="glass-card !rounded-2xl p-5 mb-6 border border-pink-500/20 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <p className="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400 tracking-wider">
+          <p className="text-xs uppercase font-bold text-pink-600 dark:text-pink-400 tracking-wider">
             Subject View
           </p>
           <h1 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
             {subjectTitle}
           </h1>
         </div>
-        <span className="text-xs bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full font-semibold border border-emerald-500/30">
+        <span className="text-xs bg-pink-500/15 text-pink-700 dark:text-pink-300 px-3 py-1 rounded-full font-semibold border border-pink-500/30">
           {chapters.length} Chapters Total
         </span>
       </div>
 
       {/* Tabs Menu matching original */}
-      <div className="flex gap-2 border-b border-emerald-500/20 mb-6 pb-2">
+      <div className="flex gap-2 border-b border-pink-500/20 mb-6 pb-2">
         <button
           onClick={() => setActiveTab('UNITS')}
           className={`px-4 py-2 rounded-xl text-sm font-bold transition-all cursor-pointer ${
             activeTab === 'UNITS'
-              ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30'
-              : 'text-gray-600 dark:text-gray-400 hover:text-emerald-600'
+              ? 'bg-pink-500/15 text-pink-700 dark:text-pink-300 border border-pink-500/30'
+              : 'text-gray-600 dark:text-gray-400 hover:text-pink-600'
           }`}
         >
           Chapters
@@ -103,8 +103,8 @@ export const SubjectPage: React.FC<SubjectPageProps> = ({
           onClick={() => setActiveTab('STUDY_MATERIAL')}
           className={`px-4 py-2 rounded-xl text-sm font-bold transition-all cursor-pointer ${
             activeTab === 'STUDY_MATERIAL'
-              ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30'
-              : 'text-gray-600 dark:text-gray-400 hover:text-emerald-600'
+              ? 'bg-pink-500/15 text-pink-700 dark:text-pink-300 border border-pink-500/30'
+              : 'text-gray-600 dark:text-gray-400 hover:text-pink-600'
           }`}
         >
           Study Material
@@ -113,8 +113,8 @@ export const SubjectPage: React.FC<SubjectPageProps> = ({
           onClick={() => setActiveTab('DIGITAL_BOOKS')}
           className={`px-4 py-2 rounded-xl text-sm font-bold transition-all cursor-pointer ${
             activeTab === 'DIGITAL_BOOKS'
-              ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30'
-              : 'text-gray-600 dark:text-gray-400 hover:text-emerald-600'
+              ? 'bg-pink-500/15 text-pink-700 dark:text-pink-300 border border-pink-500/30'
+              : 'text-gray-600 dark:text-gray-400 hover:text-pink-600'
           }`}
         >
           Digital Books
@@ -137,15 +137,15 @@ export const SubjectPage: React.FC<SubjectPageProps> = ({
             <div
               key={ch._id}
               onClick={() => onSelectChapter(ch.slug || ch._id, ch.name)}
-              className="glass-card p-5 rounded-2xl hover:shadow-spring-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer border border-emerald-500/15 dark:border-teal-500/20 group flex flex-col justify-between"
+              className="glass-card p-5 rounded-2xl hover:shadow-spring-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer border border-pink-500/15 dark:border-rose-500/20 group flex flex-col justify-between"
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-start gap-3">
-                  <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform">
+                  <div className="p-2.5 rounded-xl bg-pink-500/10 text-pink-600 dark:text-pink-400 group-hover:scale-110 transition-transform">
                     <BookOpen className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 dark:text-gray-100 text-base group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                    <h3 className="font-bold text-gray-900 dark:text-gray-100 text-base group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
                       {ch.name}
                     </h3>
                   </div>
@@ -155,15 +155,15 @@ export const SubjectPage: React.FC<SubjectPageProps> = ({
               {/* Counts row */}
               <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
                 <span className="flex items-center gap-1">
-                  <Video className="w-3.5 h-3.5 text-emerald-500" />
+                  <Video className="w-3.5 h-3.5 text-pink-500" />
                   <strong className="text-gray-700 dark:text-gray-200">{ch.videos ?? ch.lectureVideos ?? 0}</strong> Lectures
                 </span>
                 <span className="flex items-center gap-1">
-                  <FileText className="w-3.5 h-3.5 text-emerald-500" />
+                  <FileText className="w-3.5 h-3.5 text-pink-500" />
                   <strong className="text-gray-700 dark:text-gray-200">{ch.notes ?? 0}</strong> Notes
                 </span>
                 <span className="flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-pink-500" />
                   <strong className="text-gray-700 dark:text-gray-200">{ch.exercises ?? 0}</strong> DPPs
                 </span>
               </div>

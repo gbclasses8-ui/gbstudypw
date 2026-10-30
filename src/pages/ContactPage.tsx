@@ -5,13 +5,13 @@ import { APP_NAME, TELEGRAM_LINK } from '../services/api';
 export const ContactPage: React.FC = () => {
   return (
     <div className="flex-1 flex flex-col justify-center items-center px-4 py-12 text-center animate-fadeSlideUp">
-      <div className="bg-gray-800/90 dark:bg-gray-900/90 rounded-2xl shadow-2xl p-6 sm:p-10 max-w-xl w-full border border-emerald-600/40 backdrop-blur-md">
-        <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-emerald-400">
+      <div className="bg-gray-800/90 dark:bg-gray-900/90 rounded-2xl shadow-2xl p-6 sm:p-10 max-w-xl w-full border border-pink-600/40 backdrop-blur-md">
+        <h2 className="text-3xl sm:text-4xl font-extrabold mb-4 text-pink-400">
           Contact & Info
         </h2>
 
         <p className="mb-6 text-sm sm:text-base text-gray-200 leading-relaxed">
-          <span className="font-semibold text-teal-300">{APP_NAME}</span> is your
+          <span className="font-semibold text-rose-300">{APP_NAME}</span> is your
           all-in-one study companion, designed to help you learn, code, and grow.
           Our platform offers curated study materials, interactive tools, and a
           supportive community to empower your learning journey.
@@ -19,22 +19,22 @@ export const ContactPage: React.FC = () => {
 
         <ul className="mb-8 text-left text-gray-300 space-y-3 bg-gray-900/60 p-4 rounded-xl border border-gray-700/50 text-sm">
           <li className="flex items-center justify-between">
-            <span className="font-semibold text-emerald-400">Official Channel:</span>
+            <span className="font-semibold text-pink-400">Official Channel:</span>
             <a
               href={TELEGRAM_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sky-400 hover:underline font-mono"
+              className="text-pink-300 hover:underline font-mono"
             >
               @GBFreestudy
             </a>
           </li>
           <li className="flex items-center justify-between">
-            <span className="font-semibold text-emerald-400">Community Support:</span>
+            <span className="font-semibold text-pink-400">Community Support:</span>
             <span className="text-gray-300 font-mono">Available 24/7 on Telegram</span>
           </li>
           <li className="flex items-center justify-between">
-            <span className="font-semibold text-emerald-400">Content Policy:</span>
+            <span className="font-semibold text-pink-400">Content Policy:</span>
             <span className="text-gray-300">Free educational access</span>
           </li>
         </ul>
@@ -44,7 +44,7 @@ export const ContactPage: React.FC = () => {
             href={TELEGRAM_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-8 py-3 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 text-white transition font-semibold text-base shadow-lg flex items-center justify-center gap-2 active:scale-95"
+            className="w-full sm:w-auto px-8 py-3 rounded-xl bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white transition font-semibold text-base shadow-lg flex items-center justify-center gap-2 active:scale-95 cursor-pointer"
           >
             <Send className="w-5 h-5 fill-white" />
             Join Telegram Channel
